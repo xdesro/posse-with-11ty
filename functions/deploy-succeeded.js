@@ -2,7 +2,7 @@ exports.handler = async (event, context, callback) => {
 
   // Grab the latest-created file and convert it to latest-created URL
   const { latest } = require("./micropub-latest.json");
-  const latestPublishedUrl = `https://showbiz.baby/${latest.replace(
+  const latestPublishedUrl = `https://${process.env.DOMAIN_NAME}/${latest.replace(
     ".md",
     "/"
   )}`;
