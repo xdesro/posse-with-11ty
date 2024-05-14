@@ -6,6 +6,7 @@ This demo repo is the basis for some of the code references made in the May 9, 2
 
 <iframe width="656" height="595" src="https://www.youtube.com/embed/iLxJ6PtuF9Mt=8542s" title="The 11ty International Symposium on Making Web Sites Real Good" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
+
 The talk and this repo are heavily-inspired by tireless work by some incredibly smart folks to create blog posts, other talks, and most importantly open standards and specifications of these IndieWeb technologies. This repo in particular is primarily influenced by Sia Karamalegos’ [An In-Depth Tutorial of Webmentions + Eleventy](sia.codes/posts/webmentions-eleventy-in-depth/) Max Böck’s [Using Webmentions in Eleventy](https://mxb.dev/blog/using-webmentions-on-static-sites/).
 
 Special thanks to Aaron Parecki for inventing a ton of these services, and to Zach Leatherman for giving me a shot to give this talk at the [11ty International Symposium on Making Web Sites Real Good](https://conf.11ty.dev/).
