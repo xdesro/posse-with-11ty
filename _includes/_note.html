@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="micropub" href="https://showbiz.baby/.netlify/functions/micropub">
+    <link rel="webmention" href="https://webmention.io/showbiz.baby/webmention" />
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body class="post">
+    <article class="h-entry">
+        {% if title %}<h1 class="p-name">{{ title }}</h1>{% endif %}
+        <time class="dt-published" datetime="{{ page.date }}">{{ page.date }}</time>
+        <div class="e-content">
+            {{ content }}
+        </div>
+        <a class="u-url u-uid" href="{{ url }}">Permalink</a>
+        <div class="p-author h-card">
+            <img class="u-photo" width="80" src="{{ pkg.authorPhoto }}" alt="photo of {{ pkg.authorName }}" />
+            <div><a class="p-name u-url" href="{{ pkg.authorUrl }}">{{ pkg.authorName }}</a></div>
+            <address class="p-adr">
+                <span class="p-locality">{{ pkg.authorAdr.locality }}</span>,
+                <span class="p-region">{{ pkg.authorAdr.region }}</span>
+                <span class="p-country-name">{{ pkg.authorAdr.country }}</span>
+            </address>
+        </div>
+    </article>
+    <a href="https://brid.gy/publish/mastodon"></a>
+    {% assign publicUrl = "https://" | append: pkg.projectDomain | append: page.url %}
+    {% if webmentions %}
+    {% assign filteredMentions = webmentions | webmentionsByUrl: publicUrl %}
+    {% endif %}
+    {% if filteredMentions %}
+    {% assign likes = filteredMentions | getLikes %}
+    {% assign replies = filteredMentions | getReplies %}
+    {% endif %}
+    <section>
+        <h2>Webmentions</h2>
+        {% if likes %}
+        <section>
+            <h3>Liked by:</h3>
+            {% for like in likes %}
+            <a href="{{ like.author.url }}">
+                <img src="{{ like.author.photo }}" alt="{{ like.author.name }}" />
+            </a>
+            {% endfor %}
+        </section>
+        {% endif %}
+        {% if replies %}
+        <section>
+            <h3>Replies:</h3>
+            {% for reply in replies %}
+            <article>
+                <header>
+                    <img src="{{ reply.author.photo}}" />
+                    <h1>{{ reply.author.name }}</h1>
+                    <a href="{{ reply.author.url }}">Go to profile</a>
+                </header>
+                <div>{{ reply.content.html }}</div>
+                <a href="{{ reply.url }}">Go to reply</a>
+            </article>
+            {% endfor %}
+        </section>
+        {% endif %}
+    </section>
+</body>
+
+</html>

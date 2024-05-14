@@ -1,0 +1,25 @@
+{
+  "projectDomain": "showbiz.baby",
+  "authorName": "Henry Desroches",
+  "authorUrl": "https://henry.codes",
+  "authorGitHubUrl": "https://github.com/xdesro",
+  "authorPhoto": "https://henry.codes/img/headshot-2.jpg",
+  "authorAdr": {
+    "locality": "Denver",
+    "region": "Colorado",
+    "country": "US"
+  },
+  "scripts": {
+    "start": "npx @11ty/eleventy --serve",
+    "build": "npx @11ty/eleventy"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "@octokit/rest": "^20.1.1",
+    "dotenv": "^16.4.5",
+    "octokit-commit-multiple-files": "^5.0.2"
+  },
+  "dependencies": {
+    "@remy/webmention": "^1.0.4"
+  }
+}

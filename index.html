@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <!-- Micropub endpoint; tells micropub clients where to send publish requests for this user -->
+    <!-- https://www.w3.org/TR/micropub/#endpoint-discovery -->
+    <link rel="micropub" href="https://{{ pkg.projectDomain }}/.netlify/functions/micropub">
+
+    <!-- IndieAuth authorization endpoint; tells services trying to authorize us where to procure our authorization -->
+    <!-- https://indieauth.spec.indieweb.org/#authorization-endpoint -->
+    <link rel="authorization_endpoint" href="https://indieauth.com/auth">
+
+    <!-- IndieAuth tokenization endpoint, lets us get a Bearer token for our micropub requests -->
+    <!-- https://indieauth.spec.indieweb.org/#token-endpoint -->
+    <link rel="token_endpoint" href="https://tokens.indieauth.com/token">
+
+    <!-- Link rel="me" that verifies us with a service that IndieAuth can corroborate -->
+    <link rel="me" href="{{ pkg.authorGitHubUrl }}">
+
+    <!-- Webmention.io discovery endpoint -->
+    <!-- https://webmention.io/#use-it -->
+    <link rel="webmention" href="https://webmention.io/{{ pkg.projectDomain }}/webmention" />
+</head>
+
+<body>
+    <h1>That’s Showbiz Baby</h1>
+    <!-- h-card markup that indicates the author of these posts -->
+    <!-- https://microformats.org/wiki/h-card -->
+    <div class="h-card">
+        <img class="u-photo" width="80" src="{{ pkg.authorPhoto }}" alt="photo of {{ pkg.authorName }}" />
+        <div><a class="p-name u-url" href="{{ pkg.authorUrl }}">{{ pkg.authorName }}</a></div>
+        <address class="p-adr">
+            <span class="p-locality">{{ pkg.authorAdr.locality }}</span>, 
+            <span class="p-region">{{ pkg.authorAdr.region }}</span> 
+            <span class="p-country-name">{{ pkg.authorAdr.country }}</span>
+        </address>
+    </div>
+    
+    <section>
+        <h2>Notes</h2>
+        <!-- Iterate over every post -->
+        {% for note in collections.notes reversed %}
+        <!-- Use h-entry markup to indicate each different post -->
+        <!-- https://microformats.org/wiki/h-entry -->
+        <article class="h-entry">
+            <h1 class="p-name">{% if note.data.title %}{{ note.data.title }}{% else %}{{ note.date }}{% endif %}</h1>
+            <time class="dt-published" datetime="{{ note.date }}">{{ note.date }}</time>
+            <div class="e-content">{{ note.content }}</div>
+            <a class="u-url" href="{{ note.url }}">Permalink</a>
+        </article>
+        {% endfor %}
+    </section>
+</body>
+
+</html>
