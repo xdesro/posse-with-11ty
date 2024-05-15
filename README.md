@@ -4,7 +4,7 @@ This is a very basic implementation of a POSSE-style microblog publishing strate
 
 This demo repo is the basis for some of the code references made in the May 9, 2024 version of my talk [*Digital Frontiers, IndieWeb Cowboys, and A Place Online To Call Your Own*](https://www.youtube.com/watch?v=iLxJ6PtuF9M&t=8542s), which lays out the foundations of P.O.S.S.E.-style online publishing strategy.
 
-The talk and this repo are heavily-inspired by tireless work by some incredibly smart folks to create blog posts, other talks, and most importantly open standards and specifications of these IndieWeb technologies. This repo in particular is primarily influenced by Sia Karamalegos’ [An In-Depth Tutorial of Webmentions + Eleventy](sia.codes/posts/webmentions-eleventy-in-depth/) Max Böck’s [Using Webmentions in Eleventy](https://mxb.dev/blog/using-webmentions-on-static-sites/).
+The talk and this repo are heavily-inspired by tireless work by some incredibly smart folks to create blog posts, other talks, and most importantly open standards and specifications of these IndieWeb technologies. This repo in particular is primarily influenced by Sia Karamalegos’ [An In-Depth Tutorial of Webmentions + Eleventy](https://sia.codes/posts/webmentions-eleventy-in-depth/) Max Böck’s [Using Webmentions in Eleventy](https://mxb.dev/blog/using-webmentions-on-static-sites/).
 
 Special thanks to Aaron Parecki for inventing a ton of these services, and to Zach Leatherman for giving me a shot to give this talk at the [11ty International Symposium on Making Web Sites Real Good](https://conf.11ty.dev/).
 
